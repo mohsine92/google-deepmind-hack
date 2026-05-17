@@ -3,6 +3,7 @@ import numpy as np
 import cv2
 from PIL import Image
 import io
+from backend.app.ml.anomaly import predict_anomaly
 
 router = APIRouter()
 
@@ -31,7 +32,10 @@ async def analyze_image(file: UploadFile = File(...)):
         "blur_intensity": float(np.mean(blurred))
     }
 
+    ml_result = predict_anomaly(features)
+
     return {
         "filename": file.filename,
-        "features": features
+        "features": features,
+        "ml_result": ml_result
     }
