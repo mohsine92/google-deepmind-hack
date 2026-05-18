@@ -1,4 +1,4 @@
-# BioLens AI
+# (In progress) BioLens AI 
 
 AI assistant for biological experiment validation using microscopy image analysis.
 
